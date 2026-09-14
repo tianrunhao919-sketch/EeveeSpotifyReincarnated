@@ -37,6 +37,11 @@
                 "usernames": ["estrogencat"],
                 "displayName": "estrogencat",
                 "roles": ["Icon fixes"]
+            },
+            {
+                "usernames": ["Spikerko"],
+                "displayName": "Spikerko",
+                "roles": ["Spicy Lyrics developer"]
             }
         ]
     },
@@ -75,8 +80,8 @@
                 "roles": ["Ukrainian"]
             },
             {
-                "usernames": ["gototheskinny"],
-                "displayName": "gototheskinny",
+                "usernames": ["gototheskinny", "Huseyin-Korkmaz"],
+                "displayName": "gototheskinny & Huseyin-Korkmaz",
                 "roles": ["Turkish"]
             },
             {

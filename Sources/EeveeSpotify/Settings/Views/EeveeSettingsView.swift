@@ -1,3 +1,4 @@
+import EeveeSpotifyC
 import SwiftUI
 import UIKit
 
@@ -7,6 +8,8 @@ struct EeveeSettingsView: View {
     
     @State private var hasShownCommonIssuesTip = UserDefaults.hasShownCommonIssuesTip
     @State private var isClearingData = false
+    @State private var isPresentingDevNoteSheet = false
+
 
     private func confirmDestructive(
         title: String,
@@ -144,6 +147,20 @@ struct EeveeSettingsView: View {
 
             //
 
+            Section {
+                Button {
+                    isPresentingDevNoteSheet = true
+                } label: {
+                    HStack {
+                        Image(systemName: "person.fill.questionmark")
+                        Text("\("developer_note".localized)...")
+                    }
+                }
+            }
+            .sheet(isPresented: $isPresentingDevNoteSheet) {
+                EeveeDevNoteView()
+            }
+
             Section(header: Text("debug_title".localized), footer: Text("debug_section_footer".localized)) {
                 Button {
                     let logPath = NSTemporaryDirectory() + "eeveespotify_debug.log"
@@ -248,7 +265,7 @@ struct EeveeSettingsView: View {
         
         .animation(.default, value: isClearingData)
         .animation(.default, value: hasShownCommonIssuesTip)
-        
+
         .onAppear {
             WindowHelper.shared.overrideUserInterfaceStyle(.dark)
         }
